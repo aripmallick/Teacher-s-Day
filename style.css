@@ -1,0 +1,194 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Main Card */
+.card {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 2s ease-in-out;
+  max-width: 90%;
+}
+
+/* Heading */
+.card h1{
+  font-size: 2.5rem;
+  background: url(images/back2.jpg) center;
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: dil 20s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes dil{
+  to{
+    background-position-x: -200px;
+  }
+}
+
+/* Paragraph */
+.card p {
+  font-size: 1.3rem;
+  color: #333;
+}
+
+/* Balloons */
+.balloon {
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  background: radial-gradient(circle at 30% 30%, #ff4081, #c2185b);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  width: 2px;
+  height: 60px;
+  background: #555;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh) scale(1); opacity: 0; }
+  20% { opacity: 1; }
+  50% { transform: translateY(40vh) scale(1.05); }
+  100% { transform: translateY(-20vh) scale(1); opacity: 0; }
+}
+
+/* Confetti */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  background: red;
+  animation: fall 4s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Popup */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: 0.4s ease;
+  max-width: 90%;
+}
+
+.popup.show {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Buttons */
+.btn-bt, .btn {
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-bt {
+  animation: blink 1s infinite;
+  text-decoration: none;
+}
+
+/* Blinking */
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* -------------------- MOBILE RESPONSIVE -------------------- */
+@media (max-width: 700px) {
+  body{
+    
+  }
+  .card {
+    padding: 25px;
+  }
+  .card h1 {
+    font-size: 2.2rem;
+  }
+  .card p {
+    font-size: 1.1rem;
+  }
+  .balloon {
+    width: 40px;
+    height: 55px;
+  }
+  .balloon::after {
+    height: 40px;
+  }
+  .btn, .btn-bt {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .card {
+    padding: 50px;
+    border-radius: 15px;
+  }
+  .card h1 {
+    font-size: 1.8rem;
+  }
+  .card p {
+    font-size: 1rem;
+  }
+  .balloon {
+    width: 30px;
+    height: 45px;
+  }
+  .btn, .btn-bt {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+
+
